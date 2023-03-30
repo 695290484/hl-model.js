@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HLMV-Web</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+        }
+        #test {
+            position: fixed;
+            bottom: 130px;
+            right: 260px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body style="background-color: gray;">
+    <div id="test"></div>
+    <script src="hlmdl.js"></script>
+    <script>
+        let config = {
+            gui : false,          // 开启GUI控制面板 default:false
+            enablePan : false,    // 允许平移 default:false
+            enableRotate : true,  // 允许旋转 default:true
+            enableZoom : true,     // 允许缩放 default:true
+            camPosition : [15, 10, -15]    // 摄像头位置 default:[15, 10, -15]
+        }
+        let mdl = new HL_MDL("test", config);
+        mdl.load({url:'asset/jpngirl01.mdl', animation:1, body:[0,2]});
+        mdl.loadAttachment({url:'asset/p_cv47.mdl', body:[0]});
+        mdl.loadAttachment({url:'asset/p_wings.mdl', body:[0,3]});
+        mdl.build({
+            success: function(){}
+            ,error: function(err){}
+        });
+    </script>
+</body>
+
+</html>
