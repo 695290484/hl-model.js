@@ -47,17 +47,26 @@ Customize settings:
     // url : required
     // anim : default is 0
     // body : will display all if not set
-    mdl.load({url:'asset/jpngirl01.mdl', animation:1, body:[0,2]});
+    mdl.load({url:'asset/jpngirl01.mdl', animation:1, body:[0,2], optionalBody:false});
     // Load attachments
     mdl.loadAttachment({url:'asset/p_cv47.mdl', body:[0]});
-    mdl.loadAttachment({url:'asset/p_wings.mdl', body:[0,3]});
+    mdl.loadAttachment({url:'asset/p_wings.mdl', body:[0,3], animation:0, loop:0, bodySingleChoice:true});
     // Actual loading & displaying
     mdl.build({
         success: function(){} // load successfully, it will be triggered
         ,error: function(err){} // or failed, it will be triggered
     });
+
+    // Use mdl.reload() after mdl.load()
 </script>
 ``` 
+### News
+2024/9
+---
+- Set attachment animation 
+- Replace file & body parts's name on GUI
+- Reload base model
+- Auto load texture file(*T.mdl)
 
 ### Thanks
 This project is originlly from [hlmv-web](https://github.com/crskycode/hlmv-web)

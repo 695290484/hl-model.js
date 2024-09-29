@@ -47,17 +47,27 @@
     // url : 必填，模型路径
     // anim : 动作，默认0
     // body : 子模型，如果没设置则全部显示
-    mdl.load({url:'asset/jpngirl01.mdl', animation:1, body:[0,2]});
+    mdl.load({url:'asset/jpngirl01.mdl', animation:1, body:[0,2], optionalBody:false});
     // 加载附件模型
     mdl.loadAttachment({url:'asset/p_cv47.mdl', body:[0]});
-    mdl.loadAttachment({url:'asset/p_wings.mdl', body:[0,3]});
+    mdl.loadAttachment({url:'asset/p_wings.mdl', body:[0,3], animation:0, loop:0, bodySingleChoice:true});
     // 实际加载和显示
     mdl.build({
         success: function(){} // 加载完成后会触发
         ,error: function(err){} // 加载失败会触发
     });
+
+    // mdl.load()修改后使用 mdl.reload() 重载模型
 </script>
 ``` 
+
+### 更新内容
+2024/9
+---
+- 可以设置附件模型的动作了
+- 可以替换文件名和身体部分名称
+- 可以重载基础模型
+- 自动加载贴图文件(*T.mdl)
 
 ### 感谢
 这个项目修改自 [hlmv-web](https://github.com/crskycode/hlmv-web)，增加了对透明贴图和骨骼合并等支持。
